@@ -17,33 +17,33 @@ namespace snakeAndLadderProblem
             //variables
             int positionOne = 0;
 
-            Random random = new Random();
-
-            //returns a random no between 1 and 7
-            int dieRoll = random.Next(1, 7); 
-
-            Console.WriteLine("The number on die when rolled is : " + dieRoll);
-
-            int options = random.Next(0, 3);
-
-            //switch case is used to check the condition
-            switch (options)
+            //using while loop 
+            while (positionOne < 100)
             {
-                case noPlayOption:
-                    positionOne = positionOne + 0;
-                    break;
-                case ladderOption:
-                    positionOne = positionOne + dieRoll;
-                    break;
-                case snakeOption:
-                    positionOne = positionOne - dieRoll;
-                    if (positionOne < 0)
-                    {
-                        positionOne = 0;
-                    }
-                    break;
+                Random random = new Random();
+                int dieRoll = random.Next(1, 7);//values between 1 and 7
+                int options = random.Next(0, 3);//values between 0 and 3
+
+                //using switch case
+                switch (options)
+                {
+                    case noPlayOption:
+                        positionOne = positionOne + 0;
+                        break;
+                    case ladderOption:
+                        positionOne = positionOne + dieRoll;
+                        break;
+                    case snakeOption:
+                        positionOne = positionOne - dieRoll;
+                        if (positionOne < 0)
+                        {
+                            positionOne = 0;
+                        }
+                        break;
+                }
             }
-            Console.WriteLine("position of player :" + positionOne);
+            Console.WriteLine("Player Wins with Position :" + positionOne);
+
         }
     }
 }
