@@ -9,7 +9,12 @@ namespace snakeAndLadderProblem
             Console.WriteLine("Welcome to snake and ladder problem!");
 
             //constants
+            const int noPlayOption = 0;
+            const int ladderOption = 1;
+            const int snakeOption = 2;
             const int playerOne = 1;
+
+            //variables
             int positionOne = 0;
 
             Random random = new Random();
@@ -18,6 +23,27 @@ namespace snakeAndLadderProblem
             int dieRoll = random.Next(1, 7); 
 
             Console.WriteLine("The number on die when rolled is : " + dieRoll);
+
+            int options = random.Next(0, 3);
+
+            //switch case is used to check the condition
+            switch (options)
+            {
+                case noPlayOption:
+                    positionOne = positionOne + 0;
+                    break;
+                case ladderOption:
+                    positionOne = positionOne + dieRoll;
+                    break;
+                case snakeOption:
+                    positionOne = positionOne - dieRoll;
+                    if (positionOne < 0)
+                    {
+                        positionOne = 0;
+                    }
+                    break;
+            }
+            Console.WriteLine("position of player :" + positionOne);
         }
     }
 }
