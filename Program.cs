@@ -21,17 +21,17 @@ namespace snakeAndLadderProblem
             while (positionOne < 100)
             {
                 Random random = new Random();
-                int dieRoll = random.Next(1, 7);//values between 1 and 7
-                int options = random.Next(0, 3);//values between 0 and 3
-
-                //using switch case
+                int dieRoll = random.Next(1, 7);
+                int options = random.Next(0, 3);
                 switch (options)
                 {
                     case noPlayOption:
-                        positionOne = positionOne + 0;
                         break;
                     case ladderOption:
-                        positionOne = positionOne + dieRoll;
+                        if (positionOne + dieRoll <= 100)
+                        {
+                            positionOne = positionOne + dieRoll;
+                        }
                         break;
                     case snakeOption:
                         positionOne = positionOne - dieRoll;
